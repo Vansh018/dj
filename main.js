@@ -2,7 +2,9 @@ leftWristX = 0;
 leftWristY = 0;
 rightWristX = 0;
 rightWristY = 0;
-
+scoreleftwrist = 0;
+scorerightwrist = 0;
+song = "";
 
 
 function preload(){
@@ -24,7 +26,19 @@ function setup(){
 
 function draw(){
     image(video, 0, 0, 600, 500);
+    fill("#FF0000");
+    stroke("#FF0000");
+     harry_porter.isPlaying();
 
+     if(scoreleftwrist > 0.2)
+     {
+         circle(leftWristX, leftWristY, 20);
+         console.log("HANJI AFM/anjm';af");
+         peter_pan.stop();
+         if(harry_porter == "False")
+            harry_porter.play();
+         
+     }
    
 }
 
@@ -34,6 +48,12 @@ function modelLoaded(){
 
 function gotPoses(results){
     if(results.length > 0){
+        console.log(results);
+       
+        scoreleftwrist = results[0].pose.keypoints[9].score;
+
+       
+        console.log("scorelLeftWrist = " + scoreleftwrist );
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
         rightWristX = results[0].pose.rightWrist.x;
