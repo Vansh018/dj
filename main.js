@@ -28,16 +28,16 @@ function draw(){
     image(video, 0, 0, 600, 500);
     fill("#FF0000");
     stroke("#FF0000");
-     harry_porter.isPlaying();
+    song =  peter_pan.isPlaying();
 
      if(scoreleftwrist > 0.2)
      {
          circle(leftWristX, leftWristY, 20);
          console.log("HANJI AFM/anjm';af");
-         peter_pan.stop();
-         if(harry_porter == "False")
-            harry_porter.play();
-         
+         harry_porter.stop();
+         if(status == false)
+            peter_pan.play();
+            document.getElementById("song_name").innerHTML = "Peter Pan";
      }
    
 }
